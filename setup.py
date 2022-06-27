@@ -18,5 +18,9 @@ setup(
     url="https://github.com/rmc8/py_template_repository",
     packages=["src"],
     install_requires=get_requires(),
-
+    # entry_points={
+    #    "console_scripts": [
+    #         "pyt = pyt.__main__:main",
+    #     ]
+    # }
 )
