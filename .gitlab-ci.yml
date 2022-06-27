@@ -1,0 +1,32 @@
+stages:
+  - pep8
+  - readme
+  - design
+
+style:
+  image: python:3.8
+  stage: pep8
+  script:
+    - pip install flake8
+    - flake8 --max-complexity 20
+
+ja-tech-writing:
+  image: mikohei/textlint:latest
+  stage: readme
+  script: textlint --preset ja-technical-writing README.md
+
+ja-spacing:
+  image: mikohei/textlint:latest
+  stage: readme
+  script: textlint --preset preset-ja-spacing README.md
+
+tech-word-check:
+  image: mikohei/textlint:latest
+  stage: readme
+  script: textlint --rule spellcheck-tech-word README.md
+
+jtf-style:
+  image: mikohei/textlint:latest
+  stage: readme
+  script: textlint --preset textlint-rule-preset-jtf-style README.md
+
